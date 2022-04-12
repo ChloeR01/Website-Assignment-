@@ -1,0 +1,242 @@
+<html>
+    <head> 
+        <title>Curry's PC World:</title>
+        <link rel = "stylesheet" href="Curry'spc.css">
+        <script src = "https://www.flaticon.com"></script>
+        <script src="simpleslideshow.js" defer></script>
+        
+    </head>
+    <body> 
+        <header>
+			<div class="container">
+				<div class="logo">
+					<a href="#">Technology Sale's:</a>
+				</div>
+				<nav>
+
+                    <a href="InternetAppDev.html"><img src="icons/house.png" title="Home" style="height: 45px; width: 40px; padding-right: 100px; padding-top: 20px;"></a>
+                    <a href="Computing.html"><img src="icons/pc.png" title="Computing" style="height: 45px; width: 45px; padding-right: 100px;"></a>
+                    <a href="Gaming.html"><img src="icons/game-controller.png" title="Gaming" style="height: 45px; width: 45px; padding-right: 100px;"></a>
+                    <a href="Phones.html"><img src="icons/smartphone.png" title="Phones" style="height: 45px; width: 45px; padding-right: 100px;"></a>
+                    <a href="Sign.html"><img src="icons/user.png" title="Sign in" style="height: 40px; width: 45px; padding-right: 35px;"></a>
+                    <a href="Basket.html"><img src="icons/shopping-cart.png" title="Basket" style="height: 40px; width: 45px; padding-right: px;"></a>
+                   
+				</nav>
+            </div>
+        </header>
+
+        <div class="banner-area">
+           <div class="container">
+
+               <img src="images/image1.jpg" alt="Black friday deals" class="slideshow-img" width="100" height="50">
+               <img src="images/image2.jpg" class="slideshow-img" width="100" height="50">
+ 
+                </div>  
+            </div>
+            <div class="content-area">
+                <div class="container">
+                    <br>
+
+                    <div class="container-1">
+                        <br>
+                        <h4>Sign Up</h4>
+                        <br>
+                        <form action="">
+                            <div class="form-item-username">
+                                <input type="text" name="firstName" id="firstName" placeholder="First Name">
+                                <input type="text" name="lastName" id="lastName" placeholder="Last Name">
+                            </div>
+                            <br>
+                            <div class="form-item">
+                                <input type="email" name="email" id="email" placeholder="Email">
+                            </div>
+                            <br>
+                            <div class="form-item">
+                                <span class="pwd-format">
+                                    At least 8 - 20 characters <!--Message which appears when clicking the password text box-->
+                                </span>
+                                <br>
+                                <input type="password" name="password" id="password" placeholder="Enter Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" > <!--Password text boxes and patterns needed to make a password-->
+                                <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+
+                            </div>
+                            <br>
+                            <div class="accept-box">
+                                <p><input type="checkbox" name="accept" id="accept"> I accept the <a href="#">Terms and Conditions</a></p> <!--terms and conditions check button-->
+                            </div>
+                            <div class="form-btns">
+                                <button class="signup" type="submit" onclick="validate()">Sign Up</button> <!--when submitted a form it will run the validate function-->
+                                <div class="options">
+                                    Already have an account? <a href="#">Login Here</a>
+                                </div>
+                            </div>
+                        </form>
+                        <br>
+                        <p>Copyright &copy; N0931188</p>
+                    </div>
+
+                    <script>
+
+                        const signup = document.querySelector(".signup"); // variables for all statements below
+                        const termCond = document.querySelector("#accept");
+                        const password = document.querySelector("#password");
+                        const confirmPassword = document.querySelector("#confirmPassword");
+                        const pwd_format = document.querySelector(".pwd-format");
+
+                        // define a password 
+                        // password should contain around 8 - 20 alphanumerical characters 
+
+                        const passwordPattern = /^[a-zA-Z0-9]{8,20}$/ // pattern for password, user can enter beween 8 - 20 characters using upper and lower cases, numbers as well 
+
+                        password.addEventListener('focusin',()=>{
+                            pwd_format.style.display = 'block';
+
+                            password.addEventListener('keyup',()=>{
+                                if (passwordPattern.test(password.value)){
+                                    password.style.borderColor = 'green' // if both passwords appear to be the same the border colour goes green
+                                    pwd_format.style.color = 'green'
+                                } else {
+                                    password.style.borderColor = 'red'
+                                    pwd_format.style.color = 'red'
+                                }
+                            })
+                        })
+
+                        password.addEventListener('focusout',()=>{
+                            pwd_format.style.display = 'none';
+                        })
+
+                        confirmPassword.addEventListener('focusin',()=>{
+                            pwd_format.style.display = 'block';
+
+                            confirmPassword.addEventListener('keyup',()=>{
+                                if (passwordPattern.test(confirmPassword.value)){
+                                    confirmPassword.style.borderColor = 'green' // if the password appears to match the criteria stated it will turn the box green
+                                    pwd_format.style.color = 'green'
+                                } else {
+                                    confirmPassword.style.borderColor = 'red' // if it doesn't match it will make the box appear red and will not allow user to submit data
+                                    pwd_format.style.color = 'red'
+                                }
+                            })
+                        })
+
+                        confirmPassword.addEventListener('focusout',()=>{
+                            pwd_format.style.display = 'none';
+                        })
+
+                        function validate(){ // function to validate an email address
+                            var email = document.getElementById("email").value;
+                            var regx = /^([a-zA-Z0-9\._]+)@([a-zA-Z0-9])+.([a-z]+)(.[a-z]+)?$/ // This is how the email can be displayed 
+                            // user can use letters between a - z in lower and upper case letters and numbers
+                            if (regx.text(email)){
+                                alert("You have provided a valid Email") // will appear if the user has used a relevant email
+                                return true;
+                            }
+                            else{
+                                alert("Sorry! Incorrect Email") // will appear if the user doesn't use a relevant email address
+                                return false;
+                            }
+                        }
+
+                    </script>
+
+                    <br>
+                    <br>
+                        <div class="service-section">
+                            <div class="inner-width">
+                                <h3 class="section-title"><b>Help and Services</b></h3>
+                                <div class="border"></div>
+                                <div class="services-container">
+                                    <div class="service-box">
+                                        <div class="servive-icon">
+                                            <img src="Services/call.png" alt="Contact Us" style="height: 40px; width: 45px">
+                                            <div class="service-title"><b>Contact Us</b></div> <br>
+                                            <div class="service-desciption">
+                                                If you need to speak to someone,<br> you can call us on 0344 561 0000. <br>
+
+                                                    Opening hours: <br>
+                                                    Mon - Fri: 8am to 8pm 
+                                                    Sat: 8am to 6pm 
+                                                    Sun: 9am to 6pm
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br> <br>
+                                    <div class="service-box">
+                                        <div class="servive-icon">
+                                            <img src="Services/contact-form.png" alt="Write to us" style="height: 40px; width: 45px">
+                                            <div class="service-title"><b>Write to us</b></div> <br>
+                                            <div class="service-desciption">
+                                                If you like, you can also write to us at:
+                                                <br>
+                                                Currys 
+                                                PO Box 1687
+                                                Sheffield S2 5YA
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br><br>
+                                    <div class="service-box">
+                                        <div class="servive-icon">
+                                            <img src="Services/fast-delivery.png" alt="Tracking an Order" style="height: 40px; width: 45px">
+                                            <div class="service-title"><b>Track an order</b></div> <br>
+                                            <div class="service-desciption">
+                                                <B>Royal Mail</B> <br>
+                                                Example reference: JVNNNNNNNNNGB <br>
+                                                <a href="https://www.royalmail.com/track-your-item#/">Go to Royal Mail tracker</a> <br>
+                                                <br>
+                                               <B>DPD</B> <br>
+                                                Example reference: 1550 NNNN NNN NNN <br>
+                                                <a href="https://www.dpd.co.uk">Go to DPD tracker</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br><br>
+                                    <div class="service-box">
+                                        <div class="Services/servive-icon">
+                                            <img src="Services/delivery-truck.png" alt = "Delivery Options" style="height: 40px; width: 45px">
+                                            <div class="service-title"><b>Delivery Options</b></div> <br>
+                                            <div class="service-desciption">
+                                                <b>Delivery and collection</b>
+                                               We want you to love you new purchases. Chose a date and we'll take care of the rest. <br>
+                                               <br>
+                                                <b>Home Installation</b>
+                                                Same day delivery and installation. You don't have to lift a finger unless you want to. <br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br><br>
+                                    <div class="service-box">
+                                        <div class="servive-icon">
+                                            <img src="Services/wallet.png" alt = "Ways to Pay" style="height: 40px; width: 45px">
+                                            <div class="service-title"><b>Ways to pay</b></div><br>
+                                            <div class="service-desciption">
+                                                <b>Flexible credit</b>
+                                                Need it now? Pay later, available on all tech from &#163; 99 - Flexible Credit which suits you. Nice! <br>
+                                                <br>
+                                                <b>Credit & Debit Cards</b>
+                                                We accept:
+                                                American Express, Maestro, MasterCard, Visa Credit, Visa Debit
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <footer> 
+
+                            <br> 
+                            <br>
+                            <br>
+                            
+                            <a href="https://www.facebook.com/currys/"><img src="facebook.png" alt = "Facebook Page" style="height: 40px; width: 45px"></a> <a href="https://twitter.com/curryspcworlduk?lang=en-GB"><img src="twitter.png" alt = "Twitter Page" style="height: 40px; width: 45px"></a>  <a href="https://www.instagram.com/currys/?hl=en"><img src="instagram.png" alt = "Instagram Page" style="height: 40px; width: 45px"></a> 
+                            
+                            <p>Created by N0931188 Chloe Reid &copy; </p>
+
+                        </footer>
+                    </div>
+            </div>
+            
+        </body>
+</html>
